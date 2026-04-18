@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="wa-cloak">
+<html class="wa-cloak wa-theme-tailspin wa-palette-vogue wa-brand-indigo" data-fa-kit-code="dc8a27351f">
   <head>
     <title><%= content_for(:title) || "Nba Playoff Pool" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -22,24 +22,50 @@
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
 
+    <%# add webawesome via CDN method %>
 
     <!-- Theme + color palette -->
     <link
       rel="stylesheet"
-      href="https://ka-p.webawesome.com/kit/d2abc06085804b0c/webawesome@3.5.0/styles/themes/default.css"
-    >
+      href="https://ka-p.webawesome.com/kit/d2abc06085804b0c/webawesome@3.5.0/styles/themes/tailspin.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://ka-p.webawesome.com/kit/d2abc06085804b0c/webawesome@3.5.0/styles/color/palettes/vogue.css"
+    />
 
     <!-- Native styles/CSS reset -->
-    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/d2abc06085804b0c/webawesome@3.5.0/styles/native.css">
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/d2abc06085804b0c/webawesome@3.5.0/styles/native.css" />
 
     <!-- CSS utilities -->
-    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/d2abc06085804b0c/webawesome@3.5.0/styles/utilities.css">
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/d2abc06085804b0c/webawesome@3.5.0/styles/utilities.css" />
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" />
+    <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" />
 
     <!-- Web Awesome autoloader -->
     <script
       type="module"
       src="https://ka-p.webawesome.com/kit/d2abc06085804b0c/webawesome@3.5.0/webawesome.loader.js"
     ></script>
+
+    <!-- custom theme overrides -->
+    <style>
+      :root {
+        --wa-font-family-body: Inter, sans-serif;
+        --wa-font-family-heading: Inter, sans-serif;
+        --wa-font-family-code: ui-monospace, monospace;
+        --wa-font-family-longform: ui-serif, serif;
+        --wa-font-weight-body: 400;
+        --wa-font-weight-heading: 700;
+        --wa-font-weight-code: 400;
+        --wa-font-weight-longform: 400;
+        --wa-border-radius-scale: 1;
+        --wa-border-width-scale: 1;
+        --wa-space-scale: 0.875;
+      }
+    </style>
   </head>
 
   <body>
@@ -52,6 +78,7 @@
 
       <nav slot="navigation">
         <%= link_to "Home", root_path %>
+        <%= link_to "Teams", teams_path %>
         <%= link_to "About", pages_about_path %>
         <%= button_to "Log out", session_path, method: :delete if authenticated? %>
       </nav>
