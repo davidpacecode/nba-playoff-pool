@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_04_18_212147) do
+ActiveRecord::Schema[8.1].define(version: 2026_04_18_223718) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
@@ -37,6 +37,24 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_18_212147) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "series", force: :cascade do |t|
+    t.integer "bottom_seed_id", null: false
+    t.integer "bottom_seed_wins"
+    t.integer "conference"
+    t.datetime "created_at", null: false
+    t.datetime "next_game_at"
+    t.integer "round"
+    t.integer "season"
+    t.integer "status"
+    t.integer "top_seed_id", null: false
+    t.integer "top_seed_wins"
+    t.datetime "updated_at", null: false
+    t.integer "winner_id", null: false
+    t.index ["bottom_seed_id"], name: "index_series_on_bottom_seed_id"
+    t.index ["top_seed_id"], name: "index_series_on_top_seed_id"
+    t.index ["winner_id"], name: "index_series_on_winner_id"
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -67,5 +85,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_18_212147) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "series", "bottom_seeds"
+  add_foreign_key "series", "top_seeds"
+  add_foreign_key "series", "winners"
   add_foreign_key "sessions", "users"
 end
