@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html class="wa-cloak">
+  <head>
+    <title><%= content_for(:title) || "Nba Playoff Pool" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Nba Playoff Pool">
+    <meta name="mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
+    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
+
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+
+    <%# Includes all stylesheet files in app/assets/stylesheets %>
+    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+
+
+    <!-- Theme + color palette -->
+    <link
+      rel="stylesheet"
+      href="https://ka-p.webawesome.com/kit/d2abc06085804b0c/webawesome@3.5.0/styles/themes/default.css"
+    >
+
+    <!-- Native styles/CSS reset -->
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/d2abc06085804b0c/webawesome@3.5.0/styles/native.css">
+
+    <!-- CSS utilities -->
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/d2abc06085804b0c/webawesome@3.5.0/styles/utilities.css">
+
+    <!-- Web Awesome autoloader -->
+    <script
+      type="module"
+      src="https://ka-p.webawesome.com/kit/d2abc06085804b0c/webawesome@3.5.0/webawesome.loader.js"
+    ></script>
+  </head>
+
+  <body>
+
+    <wa-page>
+
+      <header slot="header">
+        <wa-icon name="basketball" color="red"></wa-icon>
+      </header>
+
+      <nav slot="navigation">
+        <%= link_to "Home", root_path %>
+        <%= link_to "About", pages_about_path %>
+        <%= button_to "Log out", session_path, method: :delete if authenticated? %>
+      </nav>
+
+      <main>
+        <%= yield %>
+      </main>
+
+      <footer slot="footer">
+        <span class="wa-body-l">Made with <wa-icon name="heart" color="red"></wa-icon> in Austin, TX</span>
+      </footer>
+
+    </wa-page>
+  </body>
+</html>
