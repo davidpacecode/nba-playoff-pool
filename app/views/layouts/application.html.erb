@@ -73,9 +73,11 @@
     <wa-page>
 
       <header slot="header">
-        <div class="wa-cluster">
-          <wa-icon name="basketball" style="color: brown; font-size: 75px;"></wa-icon>
-          <span class="wa-heading-3xl">Pace NBA Playoff Pool</span>
+        <div class="wa-cluster" style="text-decoration: none;">
+          <%= link_to root_path, style: "text-decoration: none;" do %>
+            <wa-icon name="basketball" style="color: brown; font-size: 75px;"></wa-icon>
+            <span class="wa-heading-3xl">Pace NBA Playoff Pool</span>
+          <% end %>
         </div>
       </header>
 
