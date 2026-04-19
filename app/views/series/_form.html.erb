@@ -13,22 +13,22 @@
 
   <div>
     <%= form.label :round, style: "display: block" %>
-    <%= form.number_field :round %>
+    <%= form.select :round, Series.rounds.keys.map { |r| [r.capitalize, r] } %>
   </div>
 
   <div>
     <%= form.label :conference, style: "display: block" %>
-    <%= form.number_field :conference %>
+    <%= form.select :conference, Series.conferences.keys.map { |c| [c.capitalize, c] } %>
   </div>
 
   <div>
     <%= form.label :top_seed_id, style: "display: block" %>
-    <%= form.text_field :top_seed_id %>
+    <%= form.collection_select :top_seed_id, Team.all, :id, :name %>
   </div>
 
   <div>
     <%= form.label :bottom_seed_id, style: "display: block" %>
-    <%= form.text_field :bottom_seed_id %>
+    <%= form.collection_select :bottom_seed_id, Team.all, :id, :name %>
   </div>
 
   <div>
@@ -41,14 +41,16 @@
     <%= form.number_field :bottom_seed_wins %>
   </div>
 
-  <div>
-    <%= form.label :winner_id, style: "display: block" %>
-    <%= form.text_field :winner_id %>
-  </div>
+  <% unless series.new_record? %>
+    <div>
+      <%= form.label :winner_id, style: "display: block" %>
+      <%= form.collection_select :winner_id, [series.top_seed, series.bottom_seed], :id, :name, { include_blank: true } %>
+    </div>
+  <% end %>
 
   <div>
     <%= form.label :status, style: "display: block" %>
-    <%= form.number_field :status %>
+    <%= form.select :status, Series.statuses.keys.map { |s| [s.capitalize, s] } %>
   </div>
 
   <div>

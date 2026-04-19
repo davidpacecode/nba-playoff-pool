@@ -28,21 +28,21 @@
     <link
       rel="stylesheet"
       href="https://ka-p.webawesome.com/kit/d2abc06085804b0c/webawesome@3.5.0/styles/themes/tailspin.css"
-    />
+>
     <link
       rel="stylesheet"
       href="https://ka-p.webawesome.com/kit/d2abc06085804b0c/webawesome@3.5.0/styles/color/palettes/vogue.css"
-    />
+>
 
     <!-- Native styles/CSS reset -->
-    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/d2abc06085804b0c/webawesome@3.5.0/styles/native.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/d2abc06085804b0c/webawesome@3.5.0/styles/native.css">
 
     <!-- CSS utilities -->
-    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/d2abc06085804b0c/webawesome@3.5.0/styles/utilities.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/d2abc06085804b0c/webawesome@3.5.0/styles/utilities.css">
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" />
-    <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" />
+    <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap">
+    <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap">
 
     <!-- Web Awesome autoloader -->
     <script
@@ -79,6 +79,7 @@
       <nav slot="navigation">
         <%= link_to "Home", root_path %>
         <%= link_to "Teams", teams_path %>
+        <%= link_to "Series", series_index_path %>
         <%= link_to "About", pages_about_path %>
         <%= button_to "Log out", session_path, method: :delete if authenticated? %>
       </nav>
