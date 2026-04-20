@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :picks
   resources :series
   resources :teams
   get "pages/home"

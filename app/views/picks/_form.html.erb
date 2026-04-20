@@ -1,0 +1,32 @@
+<%= form_with(model: pick) do |form| %>
+  <% if pick.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(pick.errors.count, "error") %> prohibited this pick from being saved:</h2>
+
+      <ul>
+        <% pick.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :user_id, style: "display: block" %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div>
+    <%= form.label :series_id, style: "display: block" %>
+    <%= form.collection_select :series_id, Series.all, :id, :display_name %>
+  </div>
+
+  <div>
+    <%= form.label :predicted_winner_id, style: "display: block" %>
+    <%= form.text_field :predicted_winner_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
