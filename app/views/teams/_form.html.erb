@@ -23,13 +23,10 @@
 
   <div>
     <%= form.label :conference, style: "display: block" %>
-    <%= form.select :conference, Team.conferences.keys.map { |c| [c.capitalize, c] } %>  </div>
-  <div>
-    <%= form.label :seed, style: "display: block" %>
-    <%= form.number_field :seed %>
+    <%= form.select :conference, Team.conferences.keys.map { |c| [c.capitalize, c] } %>  
   </div>
-
-  <div>
+ 
+   <div>
     <%= form.label :logo, style: "display: block" %>
     <%= form.file_field :logo %>
   </div>

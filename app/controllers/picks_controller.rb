@@ -65,6 +65,6 @@ class PicksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pick_params
-      params.expect(pick: [ :user_id, :series_id, :predicted_winner_id ])
+      params.expect(pick: [ :series_id, :predicted_winner_id ])
     end
 end

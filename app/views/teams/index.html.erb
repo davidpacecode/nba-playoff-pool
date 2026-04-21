@@ -5,12 +5,28 @@
 <h1>Teams</h1>
 
 <div id="teams">
-  <% @teams.each do |team| %>
-    <%= render team %>
-    <p>
-      <%= link_to "Show this team", team %>
-    </p>
-  <% end %>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Abbreviation</th>
+        <th>Conference</th>
+        <th>Logo</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @teams.each do |team| %>
+        <tr>
+          <td><%= team.name %></td>
+          <td><%= team.abbreviation %></td>
+          <td><%= team.conference %></td>
+          <td>Logo coming soon...</td>
+          <td><%= link_to "View", team %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 
 <%= link_to "New team", new_team_path %>

@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Pick sets" %>
+
+<h1>Pick sets</h1>
+
+<div id="pick_sets">
+  <% @pick_sets.each do |pick_set| %>
+    <%= render pick_set %>
+    <p>
+      <%= link_to "Show this pick set", pick_set %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New pick set", new_pick_set_path %>

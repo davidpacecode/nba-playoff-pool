@@ -1,0 +1,12 @@
+<% content_for :title, "Editing pick set" %>
+
+<h1>Editing pick set</h1>
+
+<%= render "form", pick_set: @pick_set %>
+
+<br>
+
+<div>
+  <%= link_to "Show this pick set", @pick_set %> |
+  <%= link_to "Back to pick sets", pick_sets_path %>
+</div>

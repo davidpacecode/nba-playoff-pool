@@ -65,6 +65,6 @@ class SeriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def series_params
-      params.expect(series: [ :round, :conference, :top_seed_id, :bottom_seed_id, :top_seed_wins, :bottom_seed_wins, :winner_id, :status, :next_game_at, :season ])
+      params.expect(series: [ :round, :conference, :top_seed_id, :bottom_seed_id, :top_seed_wins, :bottom_seed_wins, :winner_id, :status, :next_game_at ])
     end
 end

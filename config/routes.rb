@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :pick_sets
+  resources :brackets
   resources :picks
   resources :series
   resources :teams

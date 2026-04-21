@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bracket: one
+  team: one
+  seed: 1
+
+two:
+  bracket: two
+  team: two
+  seed: 1

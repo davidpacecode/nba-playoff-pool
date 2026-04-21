@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_04_20_022645) do
+ActiveRecord::Schema[8.1].define(version: 2026_04_21_043055) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
@@ -39,6 +39,33 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_20_022645) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "bracket_teams", force: :cascade do |t|
+    t.integer "bracket_id", null: false
+    t.datetime "created_at", null: false
+    t.integer "seed"
+    t.integer "team_id", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bracket_id"], name: "index_bracket_teams_on_bracket_id"
+    t.index ["team_id"], name: "index_bracket_teams_on_team_id"
+  end
+
+  create_table "brackets", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.string "name"
+    t.integer "season"
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pick_sets", force: :cascade do |t|
+    t.integer "bracket_id", null: false
+    t.datetime "created_at", null: false
+    t.string "name"
+    t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.index ["bracket_id"], name: "index_pick_sets_on_bracket_id"
+    t.index ["user_id"], name: "index_pick_sets_on_user_id"
+  end
+
   create_table "picks", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.integer "predicted_winner_id", null: false
@@ -57,7 +84,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_20_022645) do
     t.datetime "created_at", null: false
     t.datetime "next_game_at"
     t.integer "round"
-    t.integer "season"
     t.integer "status"
     t.integer "top_seed_id", null: false
     t.integer "top_seed_wins"
@@ -82,7 +108,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_20_022645) do
     t.integer "conference"
     t.datetime "created_at", null: false
     t.string "name"
-    t.integer "seed"
     t.datetime "updated_at", null: false
   end
 
@@ -96,6 +121,10 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_20_022645) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "bracket_teams", "brackets"
+  add_foreign_key "bracket_teams", "teams"
+  add_foreign_key "pick_sets", "brackets"
+  add_foreign_key "pick_sets", "users"
   add_foreign_key "picks", "predicted_winners"
   add_foreign_key "picks", "series"
   add_foreign_key "picks", "users"

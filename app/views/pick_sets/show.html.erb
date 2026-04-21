@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @pick_set %>
+
+<div>
+  <%= link_to "Edit this pick set", edit_pick_set_path(@pick_set) %> |
+  <%= link_to "Back to pick sets", pick_sets_path %>
+
+  <%= button_to "Destroy this pick set", @pick_set, method: :delete %>
+</div>

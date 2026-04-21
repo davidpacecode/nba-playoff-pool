@@ -84,6 +84,8 @@
       <nav slot="navigation">
         <%= link_to "Home", root_path %>
         <%= link_to "Teams", teams_path %>
+        <%= link_to "Bracket", brackets_path %>
+        <%= link_to "Pick Set", pick_sets_path %>
         <%= link_to "Series", series_index_path %>
         <%= link_to "About", pages_about_path %>
         <%= button_to "Log out", session_path, method: :delete if authenticated? %>
