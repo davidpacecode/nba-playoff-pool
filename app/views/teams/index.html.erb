@@ -20,8 +20,8 @@
         <tr>
           <td><%= team.name %></td>
           <td><%= team.abbreviation %></td>
-          <td><%= team.conference %></td>
-          <td>Logo coming soon...</td>
+          <td><%= team.conference.titleize %></td>
+          <td><%= image_tag team.logo, width: 25, height: 25 if team.logo.attached? %></td>
           <td><%= link_to "View", team %></td>
         </tr>
       <% end %>

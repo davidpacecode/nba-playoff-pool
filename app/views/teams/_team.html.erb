@@ -14,4 +14,9 @@
     <%= team.conference %>
   </div>
 
+  <div>
+    <strong>Logo:</strong>
+    <%= image_tag team.logo, width: 50, height: 50 if team.logo.attached? %>
+  </div>
+
 </div>
