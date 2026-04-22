@@ -1,7 +1,7 @@
 class Series < ApplicationRecord
 
-  belongs_to :top_seed, class_name: "Team"
-  belongs_to :bottom_seed, class_name: "Team"
+  belongs_to :top_seed, class_name: "Team", optional: true
+  belongs_to :bottom_seed, class_name: "Team", optional: true
   belongs_to :winner, class_name: "Team", optional: true
   belongs_to :bracket
 

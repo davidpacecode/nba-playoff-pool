@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_04_21_043055) do
+ActiveRecord::Schema[8.1].define(version: 2026_04_22_034208) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
@@ -78,18 +78,20 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_21_043055) do
   end
 
   create_table "series", force: :cascade do |t|
-    t.integer "bottom_seed_id", null: false
+    t.integer "bottom_seed_id"
     t.integer "bottom_seed_wins"
+    t.integer "bracket_id", null: false
     t.integer "conference"
     t.datetime "created_at", null: false
     t.datetime "next_game_at"
     t.integer "round"
     t.integer "status"
-    t.integer "top_seed_id", null: false
+    t.integer "top_seed_id"
     t.integer "top_seed_wins"
     t.datetime "updated_at", null: false
-    t.integer "winner_id", null: false
+    t.integer "winner_id"
     t.index ["bottom_seed_id"], name: "index_series_on_bottom_seed_id"
+    t.index ["bracket_id"], name: "index_series_on_bracket_id"
     t.index ["top_seed_id"], name: "index_series_on_top_seed_id"
     t.index ["winner_id"], name: "index_series_on_winner_id"
   end
@@ -128,8 +130,9 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_21_043055) do
   add_foreign_key "picks", "predicted_winners"
   add_foreign_key "picks", "series"
   add_foreign_key "picks", "users"
-  add_foreign_key "series", "bottom_seeds"
-  add_foreign_key "series", "top_seeds"
-  add_foreign_key "series", "winners"
+  add_foreign_key "series", "brackets"
+  add_foreign_key "series", "teams", column: "bottom_seed_id"
+  add_foreign_key "series", "teams", column: "top_seed_id"
+  add_foreign_key "series", "teams", column: "winner_id"
   add_foreign_key "sessions", "users"
 end
