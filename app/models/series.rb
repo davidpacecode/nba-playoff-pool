@@ -1,5 +1,12 @@
 class Series < ApplicationRecord
 
+  SEED_SLOT_SEEDS = {
+    0 => [1, 8],
+    1 => [4, 5],
+    2 => [3, 6],
+    3 => [2, 7]
+  }.freeze
+
   belongs_to :top_seed, class_name: "Team", optional: true
   belongs_to :bottom_seed, class_name: "Team", optional: true
   belongs_to :winner, class_name: "Team", optional: true
@@ -11,5 +18,9 @@ class Series < ApplicationRecord
 
   def display_name
     "#{round.titleize} - #{conference.titleize} - #{top_seed.name} vs #{bottom_seed.name}"
+  end
+
+  def seeds
+    SEED_SLOT_SEEDS[seed_slot]
   end
 end
