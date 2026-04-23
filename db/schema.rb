@@ -68,12 +68,10 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_23_010935) do
 
   create_table "picks", force: :cascade do |t|
     t.datetime "created_at", null: false
-    t.integer "pick_set_id", null: false
     t.integer "predicted_winner_id", null: false
     t.integer "series_id", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false
-    t.index ["pick_set_id"], name: "index_picks_on_pick_set_id"
     t.index ["predicted_winner_id"], name: "index_picks_on_predicted_winner_id"
     t.index ["series_id"], name: "index_picks_on_series_id"
     t.index ["user_id"], name: "index_picks_on_user_id"
@@ -130,9 +128,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_23_010935) do
   add_foreign_key "bracket_teams", "teams"
   add_foreign_key "pick_sets", "brackets"
   add_foreign_key "pick_sets", "users"
-  add_foreign_key "picks", "pick_sets"
+  add_foreign_key "picks", "predicted_winners"
   add_foreign_key "picks", "series"
-  add_foreign_key "picks", "teams", column: "predicted_winner_id"
   add_foreign_key "picks", "users"
   add_foreign_key "series", "brackets"
   add_foreign_key "series", "teams", column: "bottom_seed_id"

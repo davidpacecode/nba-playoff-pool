@@ -8,6 +8,15 @@ class BracketsController < ApplicationController
 
   # GET /brackets/1 or /brackets/1.json
   def show
+
+    @first_round_series = {}
+    [:eastern, :western].each do |conference|
+      (0..3).each do |seed_slot|
+        logger.info "#{conference}_#{seed_slot}"
+        @first_round_series[:"#{conference}_#{seed_slot}"] =
+          @bracket.series.find_by(conference: conference, round: :first_round, seed_slot: seed_slot)
+      end
+    end
   end
 
   # GET /brackets/new

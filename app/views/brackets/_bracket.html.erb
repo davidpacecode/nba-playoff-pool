@@ -24,13 +24,13 @@
     <div>West R1</div>
  
     <%# first row %>
-    <div><wa-card><%= bracket.series.find_by(conference: :eastern, round: :first_round, seed_slot: 0).seed_slot.to_s %></wa-card></div>
+    <div><wa-card><%= first_round_series[ :eastern_0 ].seed_slot %></wa-card></div>
     <div></div>
     <div></div>
     <div></div>
     <div></div>
     <div></div>
-    <div><wa-card><%= bracket.series.find_by(conference: :western, round: :first_round, seed_slot: 0).seed_slot.to_s %></wa-card></div>
+    <div><wa-card><%= first_round_series[ :western_0 ].seed_slot %></wa-card></div>
 
     <%# second row %>
     <div></div>
@@ -42,13 +42,13 @@
     <div></div>
 
     <%# third row %>
-    <div><wa-card><%= bracket.series.find_by(conference: :eastern, round: :first_round, seed_slot: 1).seed_slot.to_s %></wa-card></div>
+    <div><wa-card><%= first_round_series[ :eastern_1 ].seed_slot %></wa-card></div>
     <div></div>
     <div></div>
     <div></div>
     <div></div>
     <div></div>
-    <div><wa-card><%= bracket.series.find_by(conference: :western, round: :first_round, seed_slot: 1).seed_slot.to_s %></wa-card></div>
+    <div><wa-card><%= first_round_series[ :western_1 ].seed_slot %></wa-card></div>
 
     <%# fourth row %>
     <div></div>
@@ -60,13 +60,13 @@
     <div></div>
 
     <%# fifth row %>
-    <div><wa-card><%= bracket.series.find_by(conference: :eastern, round: :first_round, seed_slot: 2).seed_slot.to_s %></wa-card></div>
+    <div><wa-card><%= first_round_series[ :eastern_2 ].seed_slot %></wa-card></div>
     <div></div>
     <div></div>
     <div></div>
     <div></div>
     <div></div>
-    <div><wa-card><%= bracket.series.find_by(conference: :western, round: :first_round, seed_slot: 2).seed_slot.to_s %></wa-card></div>
+    <div><wa-card><%= first_round_series[ :western_2 ].seed_slot %></wa-card></div>
 
     <%# sixth row %>
     <div></div>
@@ -78,13 +78,13 @@
     <div></div>
 
     <%# seventh row %>
-    <div><wa-card><%= bracket.series.find_by(conference: :eastern, round: :first_round, seed_slot: 3).seed_slot.to_s %></wa-card></div>
+    <div><wa-card><%= first_round_series[ :eastern_3 ].seed_slot %></wa-card></div>
     <div></div>
     <div></div>
     <div></div>
     <div></div>
     <div></div>
-    <div><wa-card><%= bracket.series.find_by(conference: :western, round: :first_round, seed_slot: 3).seed_slot.to_s %></wa-card></div>
+    <div><wa-card><%= first_round_series[ :western_3 ].seed_slot %></wa-card></div>
 
 
   </div>
