@@ -9,7 +9,7 @@ class Bracket < ApplicationRecord
     def create_series
       { first_round: 4, conference_semifinals: 2, conference_finals: 1 }.each do |round, count|
         [:eastern, :western].each do |conference|
-          count.times { series.create!(round: round, conference: conference, status: :scheduled) }
+          count.times { |slot| series.create!(round: round, conference: conference, status: :scheduled, seed_slot: slot) }
         end
       end
 
