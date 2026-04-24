@@ -5,12 +5,14 @@
 <h1>Brackets</h1>
 
 <div id="brackets">
-  <% @brackets.each do |bracket| %>
-    <%= render bracket %>
-    <p>
-      <%= link_to "Show this bracket", bracket %>
-    </p>
-  <% end %>
+  <ul>
+    <% @brackets.each do |bracket| %>
+      <li><span class="wa-body-l"><%= link_to bracket.name, bracket %></span></li>
+      <p>
+        <%= link_to "Show this bracket", bracket %>
+      </p>
+    <% end %>
+  </ul>
 </div>
 
 <%= link_to "New bracket", new_bracket_path %>
