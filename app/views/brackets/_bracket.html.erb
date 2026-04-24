@@ -42,7 +42,10 @@
     <div></div>
 
     <%# third row %>
-    <div><wa-card><%= render "bracket_series", series: first_round_series[ :eastern_1 ] %></wa-card></div>
+    <div class="wa-stack">
+      <wa-card><%= render "bracket_series", series: first_round_series[ :eastern_1 ] %></wa-card>
+      <%= link_to "Edit", edit_series_path(first_round_series[ :eastern_1]) %>
+    </div>
     <div></div>
     <div></div>
     <div></div>

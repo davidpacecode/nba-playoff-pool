@@ -1,13 +1,15 @@
 <div id="<%= dom_id series %>">
 
-  <div class="wa-grid bracket-series">
-    <div><%= series.seeds{series.seed_slot}[0] %></div>
-    <div></div>
-    <div></div>
-    <div><%= series.seeds{series.seed_slot}[1] %></div>
-    <div></div>
-    <div></div>
+  <div class="wa-stack">
+    <div class="wa-grid bracket-series">
+      <div><%= series.seeds{series.seed_slot}[0] %></div>
+      <div></div>
+      <div></div>
+      <div><%= series.seeds{series.seed_slot}[1] %></div>
+      <div></div>
+      <div></div>
+    </div>
+    <%= link_to "Edit", edit_series_path(series) %>
   </div>
-
 
 </div>
