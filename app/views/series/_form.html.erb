@@ -41,7 +41,7 @@
     <%= form.number_field :bottom_seed_wins %>
   </div>
 
-  <% unless series.new_record? %>
+  <% unless series.new_record? || (series.top_seed.blank? && series.bottom_seed.blank?) %>
     <div>
       <%= form.label :winner_id, style: "display: block" %>
       <%= form.collection_select :winner_id, [series.top_seed, series.bottom_seed], :id, :name, { include_blank: true } %>

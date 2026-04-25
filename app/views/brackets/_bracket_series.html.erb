@@ -2,12 +2,12 @@
 
   <div class="wa-stack">
     <div class="wa-grid bracket-series">
-      <div><%= series.seeds{series.seed_slot}[0] %></div>
-      <div></div>
-      <div></div>
-      <div><%= series.seeds{series.seed_slot}[1] %></div>
-      <div></div>
-      <div></div>
+      <div><%= image_tag series.top_seed.logo, width: 25, height: 25 if series.top_seed&.logo&.attached? %></div>
+      <div><%= series.seeds[0] %></div>
+      <div><%= series.top_seed&.name %></div>
+      <div><%= image_tag series.bottom_seed.logo, width: 25, height: 25 if series.bottom_seed&.logo&.attached? %></div>
+      <div><%= series.seeds[1] %></div>
+      <div><%= series.bottom_seed&.name %></div>
     </div>
     <%= link_to "Edit", edit_series_path(series) %>
   </div>
