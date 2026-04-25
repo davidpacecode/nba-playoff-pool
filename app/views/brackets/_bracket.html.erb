@@ -24,7 +24,11 @@
     <div>West R1</div>
  
     <%# first row %>
-    <div><wa-card><%= render "bracket_series", series: first_round_series[ :eastern_0 ] %></wa-card></div>
+    <div>
+      <%= turbo_frame_tag dom_id(first_round_series[ :eastern_0 ]) do %>
+        <wa-card><%= render "bracket_series", series: first_round_series[ :eastern_0 ] %></wa-card>
+      <% end %>
+    </div>
     <div></div>
     <div></div>
     <div></div>

@@ -1,5 +1,4 @@
 <div id="<%= dom_id series %>">
-
   <div class="wa-stack">
     <div class="wa-grid bracket-series">
       <div><%= image_tag series.top_seed.logo, width: 25, height: 25 if series.top_seed&.logo&.attached? %></div>
@@ -9,7 +8,6 @@
       <div><%= series.seeds[1] %></div>
       <div><%= series.bottom_seed&.name %></div>
     </div>
-    <%= link_to "Edit", edit_series_path(series) %>
+    <%= link_to "Edit", edit_teams_series_path(series) %>
   </div>
-
 </div>

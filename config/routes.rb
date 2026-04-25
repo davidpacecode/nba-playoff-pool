@@ -2,7 +2,12 @@ Rails.application.routes.draw do
   resources :pick_sets
   resources :brackets
   resources :picks
-  resources :series
+  resources :series do
+    member do
+      get  :edit_teams
+      patch :update_teams
+    end
+  end
   resources :teams
   get "pages/home"
   get "pages/about"
