@@ -36,13 +36,13 @@
     <div></div>
     <div></div>
     <div></div>
-    <wa-card>
       <%= turbo_frame_tag dom_id(first_round_series[ :western_0 ]) do %>
-        <div>
-          <%= render "bracket_series", series: first_round_series[ :western_0 ] %>
-        </div>
+        <wa-card>
+          <div>
+            <%= render "bracket_series", series: first_round_series[ :western_0 ] %>
+          </div>
+        </wa-card>
       <% end %>
-    </wa-card>
 
     <%# second row %>
     <div></div>

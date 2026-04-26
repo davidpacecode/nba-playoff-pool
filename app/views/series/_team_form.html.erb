@@ -14,16 +14,22 @@
 
     <div>
       <%= form.label :top_seed_id, style: "display: block" %>
-      <%= form.collection_select :top_seed_id, Team.all, :id, :name %>
+      <%= form.collection_select :top_seed_id, Team.all.order(:name), :id, :name %>
     </div>
 
     <div>
       <%= form.label :bottom_seed_id, style: "display: block" %>
-      <%= form.collection_select :bottom_seed_id, Team.all, :id, :name %>
+      <%= form.collection_select :bottom_seed_id, Team.all.order(:name), :id, :name %>
     </div>
 
     <div>
       <%= form.submit %>
     </div>
+
+    <div>
+      <%# link_to "Cancel", "brackets/bracket_series", series: series %>
+      <%= link_to "Cancel", :back %>
+    </div>
+
   <% end %>
 <% end %>
