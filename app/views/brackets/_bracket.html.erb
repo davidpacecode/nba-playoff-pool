@@ -9,7 +9,7 @@
     <%= bracket.season %>
   </div>
 
-  <div class="wa-grid bracket-container wa-body-l wa-font-weight-bold">
+  <div class="wa-grid bracket-container wa-gap-0 wa-body-l wa-font-weight-bold">
 
     <%# top title row %>
     <div class="wa-span-grid"><span class="wa-heading-2xl"><%= bracket.name %></span></div>
@@ -24,17 +24,25 @@
     <div>West R1</div>
  
     <%# first row %>
-    <div>
+    <wa-card>
       <%= turbo_frame_tag dom_id(first_round_series[ :eastern_0 ]) do %>
-        <wa-card><%= render "bracket_series", series: first_round_series[ :eastern_0 ] %></wa-card>
+        <div>
+          <%= render "bracket_series", series: first_round_series[ :eastern_0 ] %>
+        </div>
       <% end %>
-    </div>
+    </wa-card>
     <div></div>
     <div></div>
     <div></div>
     <div></div>
     <div></div>
-    <div><wa-card><%= render "bracket_series", series: first_round_series[ :western_0 ] %></wa-card></div>
+    <wa-card>
+      <%= turbo_frame_tag dom_id(first_round_series[ :western_0 ]) do %>
+        <div>
+          <%= render "bracket_series", series: first_round_series[ :western_0 ] %>
+        </div>
+      <% end %>
+    </wa-card>
 
     <%# second row %>
     <div></div>
@@ -46,16 +54,25 @@
     <div></div>
 
     <%# third row %>
-    <div class="wa-stack">
-      <wa-card><%= render "bracket_series", series: first_round_series[ :eastern_1 ] %></wa-card>
-      <%= link_to "Edit", edit_series_path(first_round_series[ :eastern_1]) %>
+    <div>
+      <%= turbo_frame_tag dom_id(first_round_series[ :eastern_1 ]) do %>
+        <wa-card>
+          <%= render "bracket_series", series: first_round_series[ :eastern_1 ] %>
+        </wa-card>
+      <% end %>
     </div>
     <div></div>
     <div></div>
     <div></div>
     <div></div>
     <div></div>
-    <div><wa-card><%= render "bracket_series", series: first_round_series[ :western_1 ] %></wa-card></div>
+    <div>
+      <%= turbo_frame_tag dom_id(first_round_series[ :western_1 ]) do %>
+        <wa-card>
+          <%= render "bracket_series", series: first_round_series[ :western_1 ] %>
+        </wa-card>
+      <% end %>
+    </div>
 
     <%# fourth row %>
     <div></div>
@@ -67,13 +84,25 @@
     <div></div>
 
     <%# fifth row %>
-    <div><wa-card><%= render "bracket_series", series: first_round_series[ :eastern_2 ] %></wa-card></div>
+    <div>
+      <%= turbo_frame_tag dom_id(first_round_series[ :eastern_2 ]) do %>
+        <wa-card>
+          <%= render "bracket_series", series: first_round_series[ :eastern_2 ] %>
+        </wa-card>
+      <% end %>
+    </div>
     <div></div>
     <div></div>
     <div></div>
     <div></div>
     <div></div>
-    <div><wa-card><%= render "bracket_series", series: first_round_series[ :western_2 ] %></wa-card></div>
+    <div>
+      <%= turbo_frame_tag dom_id(first_round_series[ :western_2 ]) do %>
+        <wa-card>
+          <%= render "bracket_series", series: first_round_series[ :western_2 ] %>
+        </wa-card>
+      <% end %>
+    </div>
 
     <%# sixth row %>
     <div></div>
@@ -85,14 +114,25 @@
     <div></div>
 
     <%# seventh row %>
-    <div><wa-card><%= render "bracket_series", series: first_round_series[ :eastern_3 ] %></wa-card></div>
+    <div>
+      <%= turbo_frame_tag dom_id(first_round_series[ :eastern_3 ]) do %>
+        <wa-card>
+          <%= render "bracket_series", series: first_round_series[ :eastern_3 ] %>
+        </wa-card>
+      <% end %>
+    </div>
     <div></div>
     <div></div>
     <div></div>
     <div></div>
     <div></div>
-    <div><wa-card><%= render "bracket_series", series: first_round_series[ :western_3 ] %></wa-card></div>
-
+    <div>
+      <%= turbo_frame_tag dom_id(first_round_series[ :western_3 ]) do %>
+        <wa-card>
+          <%= render "bracket_series", series: first_round_series[ :western_3 ] %>
+        </wa-card>
+      <% end %>
+    </div>
 
   </div>
 

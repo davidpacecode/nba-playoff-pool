@@ -12,15 +12,17 @@
 .bracket-container {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(9, 1fr);
-  gap: 1rem;
+  grid-template-rows: repeat(9, auto);
   border: solid 1px black;
   border-radius: 0.5rem;
+}
+
+.bracket-container wa-card {
+  --spacing: var(--wa-space-2xs);
 }
 
 .bracket-series {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  gap: 1rem;
 }
