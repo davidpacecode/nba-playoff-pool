@@ -1,10 +1,10 @@
 <div id="<%= dom_id bracket %>">
-  <div>
+  <div class="wa-heading-xl">
     <strong>Name:</strong>
     <%= bracket.name %>
   </div>
 
-  <div>
+  <div class="wa-heading-xl">
     <strong>Season:</strong>
     <%= bracket.season %>
   </div>
@@ -26,9 +26,7 @@
     <%# first row %>
     <wa-card>
       <%= turbo_frame_tag dom_id(first_round_series[ :eastern_0 ]) do %>
-        <div>
-          <%= render "bracket_series", series: first_round_series[ :eastern_0 ] %>
-        </div>
+        <%= render "bracket_series", series: first_round_series[ :eastern_0 ] %>
       <% end %>
     </wa-card>
     <div></div>
@@ -38,15 +36,19 @@
     <div></div>
       <%= turbo_frame_tag dom_id(first_round_series[ :western_0 ]) do %>
         <wa-card>
-          <div>
-            <%= render "bracket_series", series: first_round_series[ :western_0 ] %>
-          </div>
+          <%= render "bracket_series", series: first_round_series[ :western_0 ] %>
         </wa-card>
       <% end %>
 
     <%# second row %>
     <div></div>
-    <div><wa-card></wa-card></div>
+    <div>
+      <%= turbo_frame_tag dom_id(first_round_series[ :eastern_1 ]) do %>
+        <wa-card>
+          <%= render "bracket_series", series: first_round_series[ :eastern_1 ] %>
+        </wa-card>
+      <% end %>
+    </div>
     <div></div>
     <div></div>
     <div></div>
